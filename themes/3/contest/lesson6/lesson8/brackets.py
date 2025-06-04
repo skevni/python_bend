@@ -2,6 +2,7 @@ import os
 
 
 CURRENT_PATH = os.path.dirname(__file__)
+os.chdir(CURRENT_PATH)
 
 
 class Stack:
@@ -26,7 +27,7 @@ class Stack:
 
 
 def main():
-    with open(os.path.join(CURRENT_PATH, 'input.txt'), 'r') as fi:
+    with open('input.txt', 'r') as fi:
         line = fi.readline().strip()
         stack = Stack()
         for char in line:
@@ -52,5 +53,5 @@ def main():
 
 
 if __name__ == "__main__":
-    with open(os.path.join(CURRENT_PATH, 'output.txt'), 'w') as fo:
+    with open('output.txt', 'w') as fo:
         fo.write(str(main()))
