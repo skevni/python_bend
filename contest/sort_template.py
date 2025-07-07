@@ -3,30 +3,24 @@ def sort_template(mes_len: int, messages: list[int],
     result = []
     for filter in templates:
         result += [str(x) for x in messages if x == filter]
-
-    return ' '.join([str(x) for x in result])
-
-
-def sort_template0(mes_len: int, messages: list[int],
-                  len_temp: int, templates: list[int]):
-    
-    return sorted(messages, key=lambda x: templates[x])
+    t = sorted([value for value in messages if value not in templates])
+    t1 = [str(x) for x in t]
+    result.extend(t1)
+    return ' '.join(result)
 
 
 if __name__ == "__main__":
-    # print(sort_template(
-    #     int(input()),
-    #     [int(x) for x in input().split()],
-    #     int(input()),
-    #     [int(x) for x in input().split()]
-    # )
-    # )
     print(sort_template(
-        11,
-        [int(x) for x in '2 3 1 3 2 4 6 7 9 2 19'.split()],
-        6,
-        [int(x) for x in '2 1 4 3 9 6 0 0 0 0 0'.split()]
+        int(input()),
+        [int(x) for x in input().split()],
+        int(input()),
+        [int(x) for x in input().split()]
     )
+    )
+    print(sort_template(
+            11, [int(x) for x in '2 3 1 3 2 4 6 7 9 2 19'.split()],
+            6, [int(x) for x in '2 1 4 3 9 6 0 0 0 0 0'.split()]
+        )
     )
 
 
